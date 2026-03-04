@@ -12,6 +12,12 @@ namespace szamlalas
 
         static void Main(string[] args)
         {
+            int osszeg = 0;
+            for (int i = 0; i < meres.Length; i++)
+                if (meres[i] != -1) osszeg += meres[i];
+
+            Console.WriteLine("2. feladat");
+            Console.WriteLine("Osszesen " + osszeg + " kerekparost szamoltak.");
         }
     }
 }
