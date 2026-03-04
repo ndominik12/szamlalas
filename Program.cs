@@ -11,6 +11,7 @@ namespace szamlalas
         static int[] meres = { 36, 48, 39, -1, 30, 43, -1, 76, 67, 82, 73, 75, 64, 73, 69, 63 };
 
         static int Ora(int i) { return 6 + i / 4; }
+        static int Perc(int i) { return (i % 4) * 15; }
 
         static void Main(string[] args)
         {
@@ -31,6 +32,22 @@ namespace szamlalas
                     if (Ora(i) == h && meres[i] != -1) oraiOsszeg += meres[i];
                 Console.WriteLine(h + " oratol " + oraiOsszeg + " kerekparos");
             }
+
+            int maxErtek = -1, maxIdx = -1;
+            for (int i = 0; i < meres.Length; i++)
+            {
+                if (meres[i] > maxErtek)
+                {
+                    maxErtek = meres[i];
+                    maxIdx = i;
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("4. feladat");
+            Console.WriteLine("Az athaladk maximalis szama: " + maxErtek +
+                "; a rogzites idopontja: " + Ora(maxIdx) + ":" +
+                Perc(maxIdx).ToString("D2") + ".");
         }
     }
 }
